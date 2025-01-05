@@ -2,6 +2,10 @@ import dbClient from '../utils/db.js';
 import { createHash } from 'crypto';
 import Queue from 'bull';
 
+const sha1 = require('sha1');
+const dbClient = require('../utils/dbClient');
+const redisClient = require('../utils/redisClient');
+
 class UsersController {
   static async postNew(req, res) {
     const { email, password } = req.body;

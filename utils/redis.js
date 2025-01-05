@@ -1,6 +1,9 @@
 import redis from 'redis';
 import { promisify } from 'util';
 
+const redis = require('redis');
+const { promisify } = require('util');
+
 class RedisClient {
   constructor() {
     this.client = redis.createClient();
