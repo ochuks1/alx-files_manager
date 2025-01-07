@@ -34,20 +34,20 @@ class RedisClient {
   async set(key, value, duration) {
     try {
       await this.setAsync(key, value);
-            this.client.expire(key, duration);
-        } catch (err) {
-            console.error(`Error setting key ${key}: ${err}`);
-        }
+      this.client.expire(key, duration);
+    } catch (err) {
+      console.error(`Error setting key ${key}: ${err}`);
     }
+  }
 
-    async del(key) {
-        try {
-            return await this.delAsync(key);
-        } catch (err) {
-            console.error(`Error deleting key ${key}: ${err}`);
-            return null;
-        }
+  async del(key) {
+    try {
+      return await this.delAsync(key);
+    } catch (err) {
+      console.error(`Error deleting key ${key}: ${err}`);
+      return null;
     }
+  }
 }
 
 const redisClient = new RedisClient();
